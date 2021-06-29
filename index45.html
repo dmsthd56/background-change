@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-compatible" content="IE=Edge, chrome=1">
+    <title>Javascript 문제4 & 문제5</title>
+    <link rel="stylesheet" href="./join.css">
+<script>
+    //영문 숫자 조합 match 사용
+    //예) match(/[0-9]/g) match(/[a-z|A-Z]/g)
+    /*function member(){
+        var a = document.getElementById("mid").value;//아이디 값 가져오기
+        //var aa = a.match(/[ㄱ-ㅎ|ㅋ-ㅆ]/g);
+        //var aa1 = a.match(/[a-z|A-Z]/g);
+
+        if(a<4 || a>16){
+            alert("4~16자 영문, 숫자 조합으로 작성하세요");
+        }
+        
+    }*/
+    //주소검색 팝업 부분
+    function aaa(){
+        window.open("./popup.html","","width:505px,height:660px")
+    }
+</script>
+
+</head>
+<!--
+문제4.
+회원가입 버튼을 클릭시 해당 입력 사항에 맞게 체크 되는 자바스크립트를 작성합니다.
+아이디 4~16자 영문, 숫자 조합일 경우 4자 이상 16자 이하로만 입력이 되어야 하며,
+4자 이하일 경우 "4~16자 영문, 숫자 조합으로 작성하세요" 라는 
+경고 메세지가 출력 되도록 합니다.
+비밀번호, 비밀번호 확인 시 동일한 비밀번호가 입력 되어야 합니다.
+동일한 비밀번호가 입력되지 않을 경우 "동일한 비밀번호가 입력되어야 합니다."
+라는 경고 메세지를 출력합니다.
+placeholder에 맞게 자바스크립트를 구현하도록 하십시오.
+전화번호, 휴대폰 번호는 숫자만 입력이 가능해야 합니다.
+
+문제5. 주소검색 버튼을 클릭시 popup.html 팝업창이 나와야 하며,
+팝업창 크기는 505*660 입니다. 
+해당 팝업창에서 주소 리스트를 클릭시 우편번호 및 도로명 주소가
+입력 되어야만 합니다.
+모든 입력이 완료 되면 form action이 작동 되도록 합니다.
+form 경로는
+http://mekeyace.dothome.co.kr/memberok.php 이며,
+POST형태로 전송 되도록 합니다.
+-->
+<body>
+ <form name="f">
+        <div class="joinContainer" >
+            <h2 class="joinTit">회원가입</h2>
+            <div class="joinWarp">
+                <dl>
+                    <dt>아이디</dt>
+                    <dd class="input_st1">
+                        <input type="text" placeholder="4~16자 영문, 숫자 조합" minlength="4" maxlength="16" id="mid" name="member_id">
+                        <span class="joinID"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>비밀번호</dt>
+                    <dd class="input_st1">
+                        <input type="password" placeholder="4~16자 영문, 숫자 조합" minlength="4" maxlength="16" id="mpass" name="member_pass">
+                        <span class="joinPw1"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>비밀번호확인</dt>
+                    <dd class="input_st1">
+                        <input type="password" minlength="4" maxlength="16" id="repass">
+                        <span class="joinPw2"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>이름</dt>
+                    <dd class="input_st1">
+                        <input type="text" maxlength="20" name="member_name" id="nname">
+                        <span class="joinName"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>닉네임</dt>
+                    <dd class="input_st1">
+                        <input type="text" minlength="4" maxlength="16" placeholder="닉네임을 입력해주세요" id="nnick" name="member_nick">
+                        <span class="joinNic"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>E-mail</dt>
+                    <dd class="input_st1">
+                        <input type="text" maxlength="50" placeholder="예) example@naver.com" name="member_email" id="nemail">
+                        <span class="joinEmail"></span>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>전화번호</dt>
+                    <dd class="input_st2">
+                        <input type="text" maxlength="3" name="member_tel1" id="tel1"><span>-
+                        </span><input type="text" maxlength="4" name="member_tel2" id="tel2"><span>-
+                        </span><input type="text" maxlength="4" name="member_tel3" id="tel3">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>휴대폰번호</dt>
+                    <dd class="input_st2">
+                        <input type="text" maxlength="3" name="member_hp1" id="ph1"><span>-
+                        </span><input type="text" maxlength="4" name="member_hp2" id="ph2"><span>-
+                        </span><input type="text" maxlength="4" name="member_hp3" id="ph3">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>주소</dt>
+                    <dd class="input_st3">
+                        <input type="text" placeholder="우편번호" maxlength="5" readonly name="member_addrno" id="ad1">
+                        <span class="joinHome"></span>
+                        <input type="button" value="주소 검색" onclick="aaa();">
+                    </dd>
+                    <dd class="input_st1">
+                        <input type="text" maxlength="60" placeholder="도로명주소" readonly name="member_addr" id="ad2">
+                    </dd>
+                    <dd class="input_st1">
+                        <input type="text" maxlength="60" placeholder="상세주소" name="member_addrdtc" id="ad3">
+                    </dd>
+                    <dd class="input_st1 refer">
+                        <input type="text" placeholder="참고항목" disabled>
+                    </dd>
+                </dl>
+            </div>
+            <div class="buttonBox">                   
+                    <input class="joinBtn" type="button" value="회원가입" onclick="member();">
+                    <input class="cancelBtn" type="reset" value="취소">
+            </div>
+        </div>  
+    </form>
+</body>
+<script>
+    function member(){
+        /*아이디 부분*/
+        var cid = document.getElementById("mid").value;//id value값
+        var idck1 = cid.match(/[0-9]/g);//null이 뜨면 match에 넣은 값이 없다는 뜻 - 숫자찾기
+        var idck2 = cid.match(/[a-z|A-Z]/g);//영문찾기
+        var lenid = cid.length;//id의 갯수
+        if(cid==""){
+            alert("원하시는 아이디를 입력 바랍니다.");
+        }
+        else{
+            if(idck1==null || idck2==null){//idck1,idck2 섞어서 사용하지 않을 경우
+                alert("4~16자 영문, 숫자 조합으로 작성하세요");
+            }
+            else{
+            if(lenid<4||lenid>16){
+                alert("4자 이상 16자 이하로 작성해주세요");
+             }
+            else{
+                member_pw();
+             }
+           }
+        } 
+    }//id 부분
+    function member_pw(){
+        var cpw = document.getElementById("mpass").value;//비밀번호 입력
+        var repw = document.getElementById("repass").value;//비밀번호 재확인
+        if(cpw!==repw){
+            alert("동일한 비밀번호가 입력되어야 합니다.");
+        }
+        else{
+            member_nick();
+        }
+    }//pw 부분
+    function member_nick(){
+        var cnick = document.getElementById('nnick').value;//nick value
+        var numnick = cnick.match(/[0-9]/g);//숫자
+        var ennick = cnick.match(/[a-z|A-Z]/g);//영어
+        var hgnick = cnick.match(/[ㄱ-ㅎ|ㅏ-ㅣ|가-히]/g);//한글
+
+        if(numnick==null||ennick==null||hgnick==null){
+            alert("한글,영문,숫자 조합으로 작성하세요");
+        }
+        else{
+            member_tel()
+        }
+    }//닉네임 부분
+    function member_tel(){
+        var ntel1 = document.getElementById('tel1').value;
+        var ntel2 = document.getElementById('tel2').value;
+        var ntel3 = document.getElementById('tel3').value;
+         
+        if(isNaN(ntel1)==true||isNaN(ntel2)==true||isNaN(ntel3)==true){
+            alert("숫자로 입력해주시길 바랍니다.");
+        }
+        else{
+            member_hp();
+        }
+    }//tel 부분
+    function member_hp(){
+        var nph1 = document.getElementById('ph1').value;
+        var nph2 = document.getElementById('ph2').value;
+        var nph3 = document.getElementById('ph3').value;
+         
+        if(isNaN(nph1)==true||isNaN(nph2)==true||isNaN(nph3)==true){
+            alert("숫자로 입력해주시길 바랍니다.");
+        }
+        else{
+            go();
+        }
+ 
+    }//ph 부분
+    function aaa(){
+        window.open("./popup.html","","width:505px,height:660px")
+    }//주소창
+    function go(){
+        location.href="http://mekeyace.dothome.co.kr/memberok.php?member_id="+mid+"member_pass="+mpass+"member_name="+nname+"member_nick="+nnick+"member_email="+nemail+"member_tel1="+tel1+"member_tel2="+tel2+"member_tel3="+tel3+"member_hp1="+hp1+"member_hp2="+hp2+"member_hp3="+hp3+"member_addrno="+ad1+"member_addr="+ad2+"member_addrdtc="+ad3;
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-AU-compatible" content="IE-edge,chrome=1">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="viewport" content="width=device-width">
+    <title>밀림펫</title>
+    <meta name="robots" content="index,follow">
+<style>
+body { margin: 0; padding: 0;}
+.headcss { height:60px;}
+.customercss { height:800px; }
+
+.qacss { width:1000px; height:800px;
+		 padding-top: 30px;
+		 position: absolute;
+		 z-index: 10;
+		 left: 50%; margin-left: -500px;}
+		 
+.qatitle { width:950px; height: 100px;
+    	   font-family: "notom";
+    	   line-height: 50px; text-align: center;
+           margin: 0 auto;
+           }
+    	   
+.qacate { width:950px; height:50px; margin:0 auto;}
+
+.qacate_ul {width:100%; height:40px; list-style: none;
+			font-weight: 100; margin: 0; padding: 0;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;}
+
+/******************************************************************************/
+.qacate_ul>li {width:160px; height:40px;
+			   line-height: 40px; text-align: center;
+			   border-right: 0.5px solid #ddd; 
+    		   background-color: #f1f1f1;
+    		   color: #949494;
+    		   font-size:14px; font-weight:400;
+    		   cursor: pointer;}
+    
+.qacate_ul>li:hover {color:#00c77f}
+.qacate_ul>li:last-child{border-right:0;}
+
+/******************************************************************************/
+
+.clear {clear: both;}
+.nbsp {height: 20px;}
+
+/******************************************************************************/
+
+.qa_insert {width: 950px; height: 600px;
+			margin: 0 auto; 
+ 			font-size: 12px;}
+ 			
+.qa_sotitle {width: 100%; height: 40px; 
+    		 line-height: 40px;
+    		 font-size: 20px; font-family: "notom"; 
+    		 margin-bottom: 8px; padding-left: 75px;
+             box-sizing: border-box;
+             }
+
+
+.qaselect {width: 200px; height: 35px;
+     	   border: 1px solid #ccc;}
+
+
+.qa_insert > dl {width: 800px; height: auto;
+     			 margin: 0 auto;}
+
+.qa_insert > dl > div > dt { width: 100px; height: 40px;
+							 text-align: right; 
+   							 padding:8px 20px 0 0; float: left;
+                            box-sizing: border-box;    
+                            }
+
+.qa_insert > dl > div > dd {width: 700px; height: 40px; margin-left: 100px; }
+.qa_insert > dl > div:nth-child(5) > dd {height: 240px; margin-left: 0;}
+ 
+.qainput {width: 250px; height: 30px;
+     	  border: 1px solid #ddd;
+   		  text-indent: 10px;}
+
+.qainput:nth-child(3) {margin-bottom: 10px;}
+    
+.qainput2 {width: 575px; height: 200px;
+     	   border: 1px solid #ddd; 
+    	   padding: 10px;}
+
+
+.qabtn {width: 120px; height: 35px;
+    	float: right; margin:0px 75px 0 0;
+     	font-size: 12px; color: #fff;
+    	background-color: #000;
+    	border: 0 ; border-radius: 5px;}
+    	
+/*****************************************************************************/
+.reply_div {width: 800px; height: auto;
+			margin: 0 auto;
+            font-family: "notor";
+            font-size: 16px;}
+            
+.reply_ul {width:800px; height:40px;
+           border: 1px solid #ddd;
+           border-bottom:0;
+           font-weight: 250;
+           background-color: #f1f1f1;
+           color: #949494;
+           cursor: pointer; clear: both;}
+          
+
+.reply_ul:nth-child(1){margin-top: 100px;}
+		  
+		  
+.reply_ul > li{height: 40px;
+               line-height: 40px;
+			   float: left;}
+			    
+.reply_ul > li:nth-child(1) {width: 200px; /*text-align: center;*/ text-indent: 10px; border-right: 1px solid #ddd;}
+.reply_ul > li:nth-child(2) {width: 400px; border-right: 1px solid #ddd; text-indent: 10px;}
+.reply_ul > li:nth-child(3) {width: 100px; text-indent: 10px;}
+
+
+.reply_ul2{width:800px; height:400px;
+           clear: both;	  	
+           border-top: 0;
+           display: none;}
+		  	
+.reply_ul2 > li {width: 800px; height: 100px;
+				 line-height: 100px;
+				 text-indent: 10px;
+				 color: #949494;
+				 font-weight: 250;}	
+				 	  	
+ .reply_ul2 > li:nth-child(1) {height: 50px; line-height: 50px; border-bottom: 2px dashed #ddd;}
+ .reply_ul2 > li:nth-child(3) {height: 50px; line-height: 50px; border-bottom: 2px dashed #ddd;}
+ .reply_ul2 > li:nth-child(2) {border-top: 0; overflow: auto;}
+
+
+ .qaimgs{width: 160px; height: 160px; margin-top: -20px; margin-left: 15px;}
+</style>
+</head>
+
+<body>
+
+    <!-- 최상단 -->
+    <header class="headcss">
+    </header>
+    <!-- 고객센터 파트 -->
+<form name="f" id="f">
+<section class="customercss" >
+  <div class="qacss" >
+  
+	<div class="qatitle" >
+        <label><img src="http://reduck.dothome.co.kr/j/img/QNA.png" class="qaimgs"></label>
+    </div>
+	
+	<div class="qacate" >
+        <ul class="qacate_ul" id="qacate_ul">
+            <!--<li>회원가입/탈퇴</li>
+            <li>포인트</li>
+            <li>상품관련</li>
+            <li>배송관련</li>
+            <li>결제사항</li>
+            <li>쿠폰/이벤트</li>
+            <li>기타</li>-->
+        </ul>
+	</div>
+	
+	<div class="clear nbsp"></div>
+	
+	<div class="qa_insert" >
+	<div class="qa_sotitle" >1:1 문의</div>
+    <dl>
+    <div>
+    <dt>질문유형 :</dt>
+    <dd>
+	<select name="qaselect" class="qaselect" id="qaselect">
+        <option value="">질문 유형을 선택해 주세요</option>
+        <option value="qa1">회원가입/탈퇴</option>
+        <option value="qa2">포인트</option>
+        <option value="qa3">상품관련</option>
+        <option value="qa4">배송관련</option>
+        <option value="qa5">결제사항</option>
+        <option value="qa6">쿠폰/이벤트</option>
+        <option value="qa7">기타</option>
+	</select>  ※ 질문 유형을 선택해 주세요
+    </dd>
+    </div>
+    <div>
+            <dt>E-mail :</dt>
+            <dd><input type="text" class="qainput" name="qaemail" id="qaemail">  ※ 회신받으실 이메일 주소를 정확하게 입력해 주세요</dd>
+    </div>
+
+    <div>
+            <dt>휴대폰 :</dt>
+            <dd><input type="text" class="qainput" name="qatel" maxlength="11" id="qatel">  ※ "-" 사용없이 숫자만 입력하세요</dd>
+    </div>
+
+    <div>
+            <dt>제목 :</dt>
+            <dd><input type="text" class="qainput" name="qasubject"  id="qasubject"> ※ 제목은 최대 50자까지만 입력이 가능합니다.</dd>
+    </div>
+
+    <div>
+            <dt>질문내용 :</dt>
+            <dd><textarea class="qainput2" name="qatext" id="qatext"></textarea></dd>
+    </div>
+
+    <div>
+            <dt>첨부파일 :</dt>
+            <dd><input type="file" name="qafile" id="qafile"></dd>
+    </div>
+    </dl>
+
+    <button type="button" class="qabtn" onclick="qabtn();">문의하기</button>
+    <button type="button" class="qabtn" style="margin-right: 10px;" onclick="awc();">답변보기</button>
+    <input type="hidden" name="qakey" value="qasec">
+    </div>
+    </div>
+     </section>
+    </form>
+
+    </body>
+
+    <script>
+        //문제1
+         var menu = ["회원가입/탈퇴","포인트","상품관련","배송관련","결제사항","쿠폰/이벤트","기타"];
+         var a = menu.length;//메뉴갯수
+         
+         var w=0;
+         var ck="";
+         
+         while(w<a){
+             ck+='<li class="topmenu">'+menu[w]+'</li>';
+             w++;
+         }
+         document.getElementById("qacate_ul").innerHTML=ck;
+
+
+
+        //문제2
+        function qabtn(){
+            var aa = document.getElementById("qaselect").value;//선택사항 값
+            var bb = document.getElementById("qaemail").value;//이메일 값
+            var cc = document.getElementById("qatel").value;//전화번호 값
+            var dd = document.getElementById("qasubject").value;//제목 값
+            var ee = document.getElementById("qatext").value//질문내용 값
+
+            if(aa==""){
+                alert("원하시는 질문유형을 선택해 주세요");
+            }
+            else{
+                if(bb==""){
+                    alert("회신받을 이메일을 정확하게 기재하여 주세요");
+                }
+                else{
+                    if(isNaN(cc)==true){//문제3
+                     alert("문자 사용 불가 합니다. 핸드폰 번호를 올바르게 입력해주세요");
+                    }
+                    else {
+                     if(cc.length<10){//문제3
+                       alert("올바르지 않은 휴대폰 번호 입니다.");
+                      }
+                      else{
+                         check();//제목 질문내용 사항
+                         }
+                   }
+                }
+            } 
+          function check(){//제목 질문내용 파트
+            if(dd==""){
+             alert("제목을 입력해주세요"); 
+             }
+            else{ 
+             if(dd.length>50){
+              alert("제목은 최대 50자까지만 기재 가능합니다."); 
+              }
+              else{
+                if(ee==""){
+                 alert("문의하실 내용을 기재해주세요");
+                }
+                else{
+                 f.method="post";
+                 f.action="http://reduck.dothome.co.kr/retest.php";
+                 f.submit();
+                 }
+              }
+             
+            }
+        }
+        }//문의하기 버튼 부분
+       
+
+        //문제4
+        function awc(){
+            location.href="https://help.naver.com/support/home.help";
+        }
+        //문제5
+        document.querySelector(".topmenu:nth-child(5)").onclick=function(){
+            location.href="https://pay.naver.com/about";
+        }
+    </script>
+        
+</html>
